@@ -1,0 +1,14 @@
+C:\python\C#\obj\Debug\net10.0\C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\python\C#\obj\Debug\net10.0\C#.AssemblyInfoInputs.cache
+C:\python\C#\obj\Debug\net10.0\C#.AssemblyInfo.cs
+C:\python\C#\obj\Debug\net10.0\C#.csproj.CoreCompileInputs.cache
+C:\python\C#\bin\Debug\net10.0\C#.exe
+C:\python\C#\bin\Debug\net10.0\C#.deps.json
+C:\python\C#\bin\Debug\net10.0\C#.runtimeconfig.json
+C:\python\C#\bin\Debug\net10.0\C#.dll
+C:\python\C#\bin\Debug\net10.0\C#.pdb
+C:\python\C#\obj\Debug\net10.0\C#.dll
+C:\python\C#\obj\Debug\net10.0\refint\C#.dll
+C:\python\C#\obj\Debug\net10.0\C#.pdb
+C:\python\C#\obj\Debug\net10.0\C#.genruntimeconfig.cache
+C:\python\C#\obj\Debug\net10.0\ref\C#.dll
