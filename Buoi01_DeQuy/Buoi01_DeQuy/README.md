@@ -17,7 +17,7 @@ a. Số lớn nhất: 9998
 b. Số nhỏ nhất: 2
 
 === BÀI TẬP 2 (FizzBuzz) ===
-1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz ...
+1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, ...
 
 === BÀI TẬP 3 (Đảo ngược chuỗi) ===
 Nhập vào một chuỗi bất kỳ: Cau truc du lieu va giai thuat
