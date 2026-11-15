@@ -37,9 +37,9 @@ namespace _10125283_DSA
             C1_Bai5();
 
             // =========================================================================
-            // CHƯƠNG 2: THUẬT TOÁN & THÁP HÀ NỘI
+            // CHƯƠNG 2: THUẬT TOÁN & ĐÁNH GIÁ ĐỘ PHỨC TẠP
             // =========================================================================
-            Console.WriteLine("\n>>> CHƯƠNG 2: THUẬT TOÁN & THÁP HÀ NỘI");
+            Console.WriteLine("\n>>> CHƯƠNG 2: THUẬT TOÁN & ĐÁNH GIÁ ĐỘ PHỨC TẠP");
             Console.WriteLine("------------------------------------------------------------");
 
             Console.WriteLine("=== Bài 1: Bài toán Tháp Hà Nội (4 đĩa) ===");
@@ -51,11 +51,14 @@ namespace _10125283_DSA
             Console.WriteLine("\n=== Bài 3: Kiểm tra số nguyên tố tối ưu ===");
             C2_Bai3();
 
-            Console.WriteLine("\n=== Bài 4 & 6: Sắp xếp và đo thời gian thực thi ===");
-            C2_Bai4Va6();
+            Console.WriteLine("\n=== Bài 4: Liệt kê các số hoàn hảo nhỏ hơn N (2 giải thuật) ===");
+            C2_Bai4();
 
             Console.WriteLine("\n=== Bài 5: Giải thuật tính Fibonacci ===");
             C2_Bai5();
+
+            Console.WriteLine("\n=== Bài 6: Sắp xếp dãy số & So sánh thời gian chạy ===");
+            C2_Bai6();
 
             // =========================================================================
             // CHƯƠNG 3: CÁC BÀI TOÁN ĐỆ QUY
@@ -87,6 +90,7 @@ namespace _10125283_DSA
             Console.WriteLine("\n=== Bài 8: Tính căn bậc 2 lồng nhau S(n) ===");
             C3_Bai8();
 
+    
             Console.ReadKey();
         }
 
@@ -94,7 +98,7 @@ namespace _10125283_DSA
         static void bai1_c1()
         {
             int[] a = new int[500];
-            Random rd = new Random(283); // Lấy đuôi MSV 283 tạo sự khác biệt
+            Random rd = new Random(283);
             for (int i = 0; i < 500; i++) a[i] = rd.Next(1, 5000);
 
             int max = a[0], min = a[0];
@@ -159,7 +163,7 @@ namespace _10125283_DSA
         #region CHƯƠNG 2
         static void C2_Bai1()
         {
-            int dem = 0, n = 4; // Đổi số đĩa thành 4 để khác biệt
+            int dem = 0, n = 4;
             HaNoi(n, 'A', 'B', 'C', ref dem);
             Console.WriteLine("Tổng số lần dịch chuyển tháp (4 đĩa): " + dem);
 
@@ -186,7 +190,7 @@ namespace _10125283_DSA
 
         static void C2_Bai3()
         {
-            int n = 83; // Lấy theo 283 của MSV
+            int n = 83;
             bool isPrime = true;
             if (n < 2) isPrime = false;
             for (int i = 2; i * i <= n; i++)
@@ -196,15 +200,45 @@ namespace _10125283_DSA
             Console.WriteLine($"Số {n} có phải số nguyên tố không? {isPrime}");
         }
 
-        static void C2_Bai4Va6()
+        // BÀI 4 RIÊNG: Liệt kê các số hoàn hảo nhỏ hơn N (2 giải thuật)
+        static void C2_Bai4()
         {
-            Stopwatch sw = Stopwatch.StartNew();
-            int[] a = new int[2000];
-            Random rd = new Random(283);
-            for (int i = 0; i < 2000; i++) a[i] = rd.Next(1, 5000);
-            Array.Sort(a);
-            sw.Stop();
-            Console.WriteLine($"Thời gian xử lý mảng 2000 phần tử: {sw.ElapsedMilliseconds} ms");
+            int N = 1000;
+            Console.WriteLine($"Tìm các số hoàn hảo nhỏ hơn {N}:");
+
+            // Giải thuật 1: Duyệt ước từ 1 đến k/2 - O(N^2)
+            Console.Write("Giải thuật 1 (Cơ bản): ");
+            for (int k = 2; k < N; k++)
+            {
+                int tongUoc = 0;
+                for (int i = 1; i <= k / 2; i++)
+                    if (k % i == 0) tongUoc += i;
+                if (tongUoc == k) Console.Write(k + " ");
+            }
+            Console.WriteLine();
+
+            // Giải thuật 2: Duyệt ước đến căn bậc 2 của k - O(N * sqrt(N))
+            Console.Write("Giải thuật 2 (Tối ưu): ");
+            for (int k = 2; k < N; k++)
+            {
+                if (LaSoHoanHaoToiUu(k)) Console.Write(k + " ");
+            }
+            Console.WriteLine();
+
+            static bool LaSoHoanHaoToiUu(int k)
+            {
+                if (k < 2) return false;
+                int tong = 1;
+                for (int i = 2; i * i <= k; i++)
+                {
+                    if (k % i == 0)
+                    {
+                        tong += i;
+                        if (i * i != k) tong += k / i;
+                    }
+                }
+                return tong == k;
+            }
         }
 
         static void C2_Bai5()
@@ -213,6 +247,51 @@ namespace _10125283_DSA
             Console.WriteLine($"Fibonacci đệ quy tại vị trí {n}: {FibRec(n)}");
 
             static long FibRec(int n) => (n <= 1) ? n : FibRec(n - 1) + FibRec(n - 2);
+        }
+
+        // BÀI 6 RIÊNG: Sắp xếp dãy số & So sánh thời gian thực thi
+        static void C2_Bai6()
+        {
+            Random rd = new Random(283);
+            int[] arrMau = new int[10];
+            for (int i = 0; i < arrMau.Length; i++) arrMau[i] = rd.Next(1, 100);
+
+            Console.WriteLine("Mảng mẫu ban đầu: " + string.Join(" ", arrMau));
+            int[] arrSorted = (int[])arrMau.Clone();
+            SelectionSort(arrSorted);
+            Console.WriteLine("Mảng sau sắp xếp chọn: " + string.Join(" ", arrSorted));
+
+            // Đo thời gian chạy thực nghiệm với n = 3000
+            int n = 3000;
+            int[] data = new int[n];
+            for (int i = 0; i < n; i++) data[i] = rd.Next(1, 100000);
+
+            int[] a1 = (int[])data.Clone();
+            Stopwatch sw = Stopwatch.StartNew();
+            SelectionSort(a1);
+            sw.Stop();
+            long tSelection = sw.ElapsedMilliseconds;
+
+            int[] a2 = (int[])data.Clone();
+            sw.Restart();
+            Array.Sort(a2); // QuickSort/IntroSort chuẩn của C#
+            sw.Stop();
+            long tQuick = sw.ElapsedMilliseconds;
+
+            Console.WriteLine($"So sánh với n = {n}: SelectionSort = {tSelection} ms | QuickSort = {tQuick} ms");
+
+            static void SelectionSort(int[] a)
+            {
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    int minIdx = i;
+                    for (int j = i + 1; j < a.Length; j++)
+                        if (a[j] < a[minIdx]) minIdx = j;
+                    int temp = a[i];
+                    a[i] = a[minIdx];
+                    a[minIdx] = temp;
+                }
+            }
         }
         #endregion
 

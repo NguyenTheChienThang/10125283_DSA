@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Buoi01_DeQuy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1ef049e8110ce176647fa51e2d070e4f9905420")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2772c386fb248a8430c65e16495fca99dc6d29bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Buoi01_DeQuy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Buoi01_DeQuy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
