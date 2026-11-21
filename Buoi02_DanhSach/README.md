@@ -4,24 +4,24 @@ Họ tên: Nguyễn Thế Chiến Thắng · MSV: 10125283
 
 ## Bài đã làm
 Bài 1, 2, 3, 4 5
-<<<<<<< HEAD
+
 
 
 ## Cách chạy
 ```
 dotnet run 
 =======
-Bài 
+
 
 ## Cách chạy
 ```
 dotnet run --project Buoi02_DeQuy
->>>>>>> ff45fdaa7ca0c37b61a340e74d62a109328bbf88
+
 ```
 
 ## Kết quả chạy
 ```
-<<<<<<< HEAD
+
 === Bài 1: Mảng n số nguyên dương ===
 Nhập n: 4
 a[0] = 10
@@ -131,5 +131,4 @@ Nhận và xử lý: Packet_1: Hello
 Nhận và xử lý: Packet_2: Data
 Nhận và xử lý: Packet_3: End
 
->>>>>>> ff45fdaa7ca0c37b61a340e74d62a109328bbf88
 ```
